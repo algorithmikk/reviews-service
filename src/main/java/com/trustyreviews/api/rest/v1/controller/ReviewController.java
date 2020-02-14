@@ -21,16 +21,15 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping("/api/review-service/v1")
 public class ReviewController {
 	
-	@ApiOperation(value = "Return a list of paginated Jukes with a supported setting Id", nickname = "getSettingJukeBox")
+	@ApiOperation(value = "Return a list of paginated Reviews with a supported coordinate Id", nickname = "getReviews")
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "The execution has been successfull", response = Review.class),
 			@ApiResponse(code = 400, message = "Bad request"),
-			@ApiResponse(code = 404, message = "The Setting for that jukebox has not been found"),
+			@ApiResponse(code = 404, message = "The Coordinate for that review has not been found"),
 			@ApiResponse(code = 500, message = "Internal server error") })
-	@GetMapping(value = { "/jukebox/settings/{id}" }, produces = { "application/json" })
+	@GetMapping(value = { "/review/coordinate/{id}" }, produces = { "application/json" })
 	public ResponseEntity<List<Review>> getSettingJukeBox(
-			@PathVariable(value = "id") @ApiParam(value = "The ID of the Setting", required = true) final Optional<String> id,
-			@RequestParam(value = "model") @ApiParam(value = "The model of the Jukebox", required = false) final Optional<String> model,
+			@PathVariable(value = "id") @ApiParam(value = "The ID of the Coordinate", required = true) final Optional<String> id,
 			@RequestParam(value = "offset") @ApiParam(value = "Offset for paginated results", required = false) final Optional<Integer> offset,
 			@RequestParam(value = "limit") @ApiParam(value = "Limit for paginated results", required = false) final Optional<Integer> limit) {
 
