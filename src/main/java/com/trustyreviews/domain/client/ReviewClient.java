@@ -14,7 +14,7 @@ import com.jukeboxapp.jukebox.domain.dto.SettingsDto;
 @Primary
 public interface ReviewClient {
 
-	@RequestMapping(method = RequestMethod.POST, value = "/geolocate?key=AIzaSyAfVpvYn3Tno40FmU-eP56POFkR1B-BNr0")
+	@RequestMapping(method = RequestMethod.POST, value = "/geolocate?key=**")
 	List<JukeBoxDto> getListOfGeoPos();
 
 
